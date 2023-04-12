@@ -8,8 +8,8 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.39.169
+IP 158.160.39.169
 
-[Frontend] (https://shaykina.nomoredomains.monster)
+Frontend https://shaykina.nomoredomains.monster
 
-[Backend] (https://api.shaykina.nomoredomains.monster)
+Backend https://api.shaykina.nomoredomains.monster
