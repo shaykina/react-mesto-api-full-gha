@@ -4,12 +4,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: (https://github.com/shaykina/react-mesto-api-full-gha)
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.39.169
 
-Frontend https://...
+[Frontend] (https://shaykina.nomoredomains.monster)
 
-Backend https://...
+[Backend] (https://api.shaykina.nomoredomains.monster)
