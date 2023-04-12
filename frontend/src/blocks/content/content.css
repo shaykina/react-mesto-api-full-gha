@@ -1,0 +1,19 @@
+.content {
+  padding: 0 200px;
+  flex: 1;
+  min-width: 68%;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 1279px) {
+  .content {
+    padding: 0 100px;
+    min-width: 80%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .content {
+    padding: 0 19px;
+  }
+}
