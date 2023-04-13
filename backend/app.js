@@ -30,10 +30,10 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {});
 
 app.use(cors({
   origin: [
-    'https://shaykina.nomoredomains.monster/signup',
-    'http://shaykina.nomoredomains.monster/signup',
-    'https://localhost:3000/signup',
-    'http://localhost:3000/signup'
+    'https://shaykina.nomoredomains.monster',
+    'http://shaykina.nomoredomains.monster',
+    'https://localhost:3000',
+    'http://localhost:3000'
   ]
 }));
 
