@@ -22,6 +22,11 @@ const allowedCors = [
 const PORT = 3000;
 const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {});
+
 app.use(function(req, res, next) {
   const { origin } = req.headers;
 
@@ -31,11 +36,6 @@ app.use(function(req, res, next) {
 
   next();
 });
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {});
 
 app.use(requestLogger);
 
