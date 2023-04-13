@@ -11,6 +11,7 @@ const NotFoundError = require('./errors/NotFoundError');
 require('dotenv').config();
 const { validateURL } = require('./utils/validateURL');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('cors');
 
 const allowedCors = [
   'https://shaykina.nomoredomains.monster',
@@ -27,7 +28,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {});
 
-app.use(function(req, res, next) {
+app.use(cors({
+  origin: allowedCors
+}));
+
+/*app.use(function(req, res, next) {
   const { origin } = req.headers;
 
   if (allowedCors.includes(origin)) {
@@ -37,7 +42,7 @@ app.use(function(req, res, next) {
   }
 
   next();
-});
+});*/
 
 app.use(requestLogger);
 
