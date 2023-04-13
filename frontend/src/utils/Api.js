@@ -89,7 +89,7 @@ class Api {
 const api = new Api({
   baseUrl: 'https://api.shaykina.nomoredomains.monster',
   headers: {
-    authorization: 'f2e06461-a78f-4c1a-ae98-f26d720c075b',
+    authorization: `Bearer ${localStorage.getItem('token')}`,
     'Content-Type': 'application/json'
   }
 });

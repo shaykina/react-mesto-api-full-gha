@@ -102,7 +102,7 @@ function App() {
       auth.checkToken(token).then((res) => {
         setIsLoggedIn(true);
         navigate('/', { replace: true });
-        setUserMail(res.data.email);
+        setUserMail(res.email);
       })
     }
   }
