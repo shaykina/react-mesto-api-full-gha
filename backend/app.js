@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {});
 
 app.use(function(req, res, next) {
-  const { origin } = req.headers;
+  const { origin } = req.headers.referer;
 
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
