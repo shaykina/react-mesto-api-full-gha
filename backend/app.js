@@ -13,12 +13,12 @@ const { validateURL } = require('./utils/validateURL');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('cors');
 
-const allowedCors = [
+/*const allowedCors = [
   'https://shaykina.nomoredomains.monster/signup',
   'http://shaykina.nomoredomains.monster/signup',
   'https://localhost:3000/signup',
   'http://localhost:3000/signup'
-];
+];*/
 
 const PORT = 3000;
 const app = express();
@@ -28,9 +28,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {});
 
-/*app.use(cors({
-  origin: allowedCors
-}));*/
+app.use(cors({
+  origin: [
+    'https://shaykina.nomoredomains.monster/signup',
+    'http://shaykina.nomoredomains.monster/signup',
+    'https://localhost:3000/signup',
+    'http://localhost:3000/signup'
+  ]
+}));
 
 app.use(function(req, res, next) {
   const { origin } = req.headers;
