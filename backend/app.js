@@ -11,33 +11,23 @@ const NotFoundError = require('./errors/NotFoundError');
 require('dotenv').config();
 const { validateURL } = require('./utils/validateURL');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('cors');
 
-/*const allowedCors = [
+const allowedCors = [
   'https://shaykina.nomoredomains.monster',
   'http://shaykina.nomoredomains.monster',
   'https://localhost:3000',
   'http://localhost:3000'
-];*/
+];
 
 const PORT = 3000;
 const app = express();
-
-app.use(cors({
-  origin: [
-    'https://shaykina.nomoredomains.monster',
-  'http://shaykina.nomoredomains.monster',
-  'https://localhost:3000',
-  'http://localhost:3000'
-  ],
-}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {});
 
-/*app.use(function(req, res, next) {
+app.use(function(req, res, next) {
   const { origin } = req.headers;
 
   if (allowedCors.includes(origin)) {
@@ -47,7 +37,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {});
   }
 
   next();
-});*/
+});
 
 app.use(requestLogger);
 
