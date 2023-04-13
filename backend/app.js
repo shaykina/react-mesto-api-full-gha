@@ -14,10 +14,10 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('cors');
 
 const allowedCors = [
-  'https://shaykina.nomoredomains.monster',
-  'http://shaykina.nomoredomains.monster',
-  'https://localhost:3000',
-  'http://localhost:3000'
+  'https://shaykina.nomoredomains.monster/signup',
+  'http://shaykina.nomoredomains.monster/signup',
+  'https://localhost:3000/signup',
+  'http://localhost:3000/signup'
 ];
 
 const PORT = 3000;
@@ -28,11 +28,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {});
 
-app.use(cors({
+/*app.use(cors({
   origin: allowedCors
-}));
+}));*/
 
-/*app.use(function(req, res, next) {
+app.use(function(req, res, next) {
   const { origin } = req.headers;
 
   if (allowedCors.includes(origin)) {
@@ -42,7 +42,7 @@ app.use(cors({
   }
 
   next();
-});*/
+});
 
 app.use(requestLogger);
 
