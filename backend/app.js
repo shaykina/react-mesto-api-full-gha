@@ -11,9 +11,19 @@ const NotFoundError = require('./errors/NotFoundError');
 require('dotenv').config();
 const { validateURL } = require('./utils/validateURL');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('cors');
 
 const PORT = 3000;
 const app = express();
+
+app.use(cors({
+  origin: [
+    'https://shaykina.nomoredomains.monster',
+    'http://shaykina.nomoredomains.monster',
+    'https://localhost:3000',
+    'http://localhost:3000',
+  ],
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
