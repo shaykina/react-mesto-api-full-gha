@@ -37,7 +37,7 @@ app.use(cors({
   ]
 }));
 
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   const { origin } = req.headers;
 
   if (allowedCors.includes(origin)) {
@@ -47,7 +47,7 @@ app.use(function(req, res, next) {
   }
 
   next();
-});
+});*/
 
 app.use(requestLogger);
 
