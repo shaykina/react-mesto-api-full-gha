@@ -52,13 +52,7 @@ module.exports.getCurrentUser = (req, res, next) => {
         email: user.email,
       });
     })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new BadRequestError('Указан несуществующий _id пользователя'));
-      } else {
-        next(err);
-      }
-    });
+    .catch(next);
 };
 
 module.exports.createUser = (req, res, next) => {
@@ -117,7 +111,7 @@ module.exports.changeProfile = (req, res, next) => {
       });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError' || err.name === 'CastError') {
+      if (err.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные при обновлении профиля'));
       } else {
         next(err);
@@ -150,7 +144,7 @@ module.exports.changeAvatar = (req, res, next) => {
       });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError' || err.name === 'CastError') {
+      if (err.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные при обновлении аватара'));
       } else {
         next(err);
