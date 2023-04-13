@@ -11,6 +11,7 @@ const NotFoundError = require('./errors/NotFoundError');
 require('dotenv').config();
 const { validateURL } = require('./utils/validateURL');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('cors');
 
 const allowedCors = [
   'https://shaykina.nomoredomains.monster',
@@ -21,6 +22,8 @@ const allowedCors = [
 
 const PORT = 3000;
 const app = express();
+
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
