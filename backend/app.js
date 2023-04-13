@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const { errors } = require('celebrate');
 const { celebrate, Joi } = require('celebrate');
 const routerUsers = require('./routes/users');
@@ -11,14 +12,6 @@ const NotFoundError = require('./errors/NotFoundError');
 require('dotenv').config();
 const { validateURL } = require('./utils/validateURL');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('cors');
-
-/*const allowedCors = [
-  'https://shaykina.nomoredomains.monster/signup',
-  'http://shaykina.nomoredomains.monster/signup',
-  'https://localhost:3000/signup',
-  'http://localhost:3000/signup'
-];*/
 
 const PORT = 3000;
 const app = express();
@@ -33,21 +26,9 @@ app.use(cors({
     'https://shaykina.nomoredomains.monster',
     'http://shaykina.nomoredomains.monster',
     'https://localhost:3000',
-    'http://localhost:3000'
-  ]
+    'http://localhost:3000',
+  ],
 }));
-
-/*app.use(function(req, res, next) {
-  const { origin } = req.headers;
-
-  if (allowedCors.includes(origin)) {
-    console.log(origin);
-    res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Credentials', true);
-  }
-
-  next();
-});*/
 
 app.use(requestLogger);
 
