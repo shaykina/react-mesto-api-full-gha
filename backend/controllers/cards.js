@@ -6,10 +6,8 @@ const ForbiddenError = require('../errors/ForbiddenError');
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .then((data) => {
-      data.populate(['owner', 'likes'])
-        .then((cards) => res.send(cards));
-    })
+    .populate(['owner', 'likes'])
+    .then((cards) => res.send(cards))
     .catch(next);
 };
 
