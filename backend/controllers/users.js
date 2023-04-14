@@ -107,11 +107,10 @@ module.exports.changeProfile = (req, res, next) => {
         avatar: user.avatar,
         _id: user._id,
         email: user.email,
-        password: user.password,
       });
     })
     .catch((err) => {
-      if (err.name === 'CastError') {
+      if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при обновлении профиля'));
       } else {
         next(err);
@@ -140,11 +139,10 @@ module.exports.changeAvatar = (req, res, next) => {
         avatar: user.avatar,
         _id: user._id,
         email: user.email,
-        password: user.password,
       });
     })
     .catch((err) => {
-      if (err.name === 'CastError') {
+      if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при обновлении аватара'));
       } else {
         next(err);
